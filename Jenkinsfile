@@ -37,7 +37,7 @@ pipeline {
                     steps {
                         script {
                             sh 'echo Smoke testing'
-                            sh 'python3.8 -m pytest smoke --html=report.html'
+                            sh 'python3.8 -m pytest -m smoke --html=report.html'
                             archiveArtifacts artifacts: 'index.html, assets/', followSymlinks: false
                         }
                     }
