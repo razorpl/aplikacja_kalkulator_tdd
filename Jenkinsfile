@@ -15,6 +15,7 @@ pipeline {
                 }
             }
         }
+        try {
         stage('STATIC CODE TEST') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -25,6 +26,10 @@ pipeline {
                     sh 'pylint *.py **/*.py'                    
                 }
             }
+        }
+        } catch(e) {
+           sh 'echo FOund errors in Static code test'
+           sh 'exit 0'
         }
         stage('MAIN TEST') {
             parallel {
