@@ -17,6 +17,9 @@ pipeline {
         }
         stage('STATIC CODE TEST') {
             steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh "exit 1"
+                }
                 script {
                     sh 'echo Static code testing with pylint'
                     sh 'pylint *.py **/*.py'                    
