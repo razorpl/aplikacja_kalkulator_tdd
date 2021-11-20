@@ -19,7 +19,8 @@ pipeline {
             steps {
                 script {
                     sh 'echo Static code testing with pylint'
-                    sh 'pylint $(git ls-files '*.py')'
+                    sh 'shopt -s globstar'
+                    sh 'pylint ./**/*.py'
                     
                 }
             }
