@@ -9,9 +9,9 @@ pipeline {
         stage('CHECKOUT') {
             steps {
                 script {
-                    git branch: "${params.BRANCH_NAME}", url: 'https://github.com/razorpl/aplikacja_kalkulator_tdd.git'
+                    git branch: "${params.BRANCH}", url: 'https://github.com/razorpl/aplikacja_kalkulator_tdd.git'
                     sh 'echo Checkout'
-                    checkout([$class: 'GitSCM', branches: [[name: '$BRANCH_NAME']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/razorpl/aplikacja_kalkulator_tdd.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '$BRANCH']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/razorpl/aplikacja_kalkulator_tdd.git']]])
                 }
             }
         }
