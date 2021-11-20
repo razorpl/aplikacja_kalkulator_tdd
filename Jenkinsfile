@@ -20,7 +20,7 @@ pipeline {
                 steps {
                     script {
                         sh 'echo Static code testing with pylint'
-                        sh 'pylint *.py **/*.py'
+                        sh 'pylint *.py **/*.py --exit-zero'
                         sh 'exit 1'                    
                     }
                 }
