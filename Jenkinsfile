@@ -21,7 +21,7 @@ pipeline {
                     script {
                         sh 'echo Static code testing with pylint'
                         sh 'pylint *.py **/*.py --exit-zero'
-                        sh 'exit 1'                    
+                        sh 'exit 0'                    
                     }
                 }
             }
